@@ -1,5 +1,17 @@
-import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Table, TableBody, TableCell, TableFooter, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableFooter,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 export function OrderDetails() {
   return (
@@ -16,7 +28,9 @@ export function OrderDetails() {
               <TableCell className="flex justify-end">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-slate-400"></span>
-                  <span className="font-medium text-muted-foreground">Pendente</span>
+                  <span className="text-muted-foreground font-medium">
+                    Pendente
+                  </span>
                 </div>
               </TableCell>
             </TableRow>
@@ -43,10 +57,10 @@ export function OrderDetails() {
             </TableRow>
 
             <TableRow>
-              <TableCell className="text-muted-foreground">Realizado há</TableCell>
-              <TableCell className="flex justify-end">
-                há 3 minutos
+              <TableCell className="text-muted-foreground">
+                Realizado há
               </TableCell>
+              <TableCell className="flex justify-end">há 3 minutos</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -78,7 +92,9 @@ export function OrderDetails() {
           <TableFooter>
             <TableRow>
               <TableCell colSpan={3}>Total do pedido</TableCell>
-              <TableCell className="text-right font-medium">R$ 199,80</TableCell>
+              <TableCell className="text-right font-medium">
+                R$ 199,80
+              </TableCell>
             </TableRow>
           </TableFooter>
         </Table>

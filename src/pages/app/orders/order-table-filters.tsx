@@ -1,13 +1,20 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectTrigger, SelectContent, SelectValue, SelectItem } from "@/components/ui/select";
-import { Search, X } from "lucide-react";
+import { Search, X } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 
 export function OrderTableFilters() {
   return (
     <form className="flex items-center gap-2">
       <span className="text-sm font-semibold">Filtros:</span>
-      <Input placeholder="ID do pedido" className="h-8 w-auto"/>
+      <Input placeholder="ID do pedido" className="h-8 w-auto" />
       <Input placeholder="Nome do cliente" className="h-8 w-[320px]" />
       <Select defaultValue="all">
         <SelectTrigger className="h8 w-[180px]">

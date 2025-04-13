@@ -1,7 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart } from "lucide-react";
-import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import colors from "tailwindcss/colors";
+import { BarChart } from 'lucide-react'
+import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts'
+import colors from 'tailwindcss/colors'
+
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const data = [
   { product: 'Portuguesa', amount: 50 },
@@ -9,7 +10,7 @@ const data = [
   { product: '6 queijos', amount: 27 },
   { product: 'Cornbacon', amount: 23 },
   { product: 'Chocolate', amount: 18 },
-];
+]
 
 const COLORS = [
   colors.violet['500'],
@@ -21,24 +22,26 @@ const COLORS = [
 
 export function PopularProductsChart() {
   return (
-    <Card className='col-span-3'>
-      <CardHeader className='pb-8'>
+    <Card className="col-span-3">
+      <CardHeader className="pb-8">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base font-medium">Produtos populares</CardTitle>
-          <BarChart className='h-4 w-4 text-muted-foreground' />
+          <CardTitle className="text-base font-medium">
+            Produtos populares
+          </CardTitle>
+          <BarChart className="text-muted-foreground h-4 w-4" />
         </div>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={240}>
           <PieChart style={{ fontSize: 12 }}>
-            <Pie 
-              data={data} 
-              dataKey="amount" 
-              nameKey="product" 
-              cx="50%" 
-              cy="50%" 
-              outerRadius={84} 
-              innerRadius={64} 
+            <Pie
+              data={data}
+              dataKey="amount"
+              nameKey="product"
+              cx="50%"
+              cy="50%"
+              outerRadius={84}
+              innerRadius={64}
               strokeWidth={8}
               labelLine={false}
               label={({
@@ -54,7 +57,7 @@ export function PopularProductsChart() {
                 const radius = 12 + innerRadius + (outerRadius - innerRadius)
                 const x = cx + radius * Math.cos(-midAngle * RADIAN)
                 const y = cy + radius * Math.sin(-midAngle * RADIAN)
-              
+
                 return (
                   <text
                     x={x}
@@ -70,16 +73,17 @@ export function PopularProductsChart() {
                   </text>
                 )
               }}
-              >
-                {data.map((_, index) => {
-                  return (
-                    <Cell
-                      key={`cell-${index}`} 
-                      fill={COLORS[index]} 
-                      className="stroke-background dark:stroke-[#18181b] hover:opacity-80" />
-                  )
-                })}
-              </Pie>
+            >
+              {data.map((_, index) => {
+                return (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index]}
+                    className="stroke-background hover:opacity-80 dark:stroke-[#18181b]"
+                  />
+                )
+              })}
+            </Pie>
           </PieChart>
         </ResponsiveContainer>
       </CardContent>
