@@ -7,7 +7,7 @@ export interface GetDayOrdersAmountResponse {
 
 export async function getDayOrdersAmount() {
   const response = await api.get<GetDayOrdersAmountResponse>(
-    '/metrics/days-orders-amount',
+    '/metrics/day-orders-amount',
   )
   return response.data
 }
