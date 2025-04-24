@@ -1,41 +1,44 @@
 import { useQuery } from '@tanstack/react-query'
 import { DollarSign } from 'lucide-react'
 
-import { getMonthCanceledOrdersAmount } from '@/api/get-month-canceled-orders-amount'
+import { getMonthRevenue } from '@/api/get-month-revenue'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-export function MonthCanceledOrdersAmount() {
-  const { data: monthCanceledOrdersAmount } = useQuery({
-    queryFn: getMonthCanceledOrdersAmount,
-    queryKey: ['metrics', 'month-canceled-orders-amount'],
+export function MonthRevenueCard() {
+  const { data: monthRevenue } = useQuery({
+    queryFn: getMonthRevenue,
+    queryKey: ['metrics', 'month-revenue'],
   })
 
   return (
     <Card>
       <CardHeader className="flex items-center justify-between pb-2">
         <CardTitle className="text-base font-semibold">
-          Cancelamentos (mês)
+          Receita total (mês)
         </CardTitle>
         <DollarSign className="text-muted-foreground h-4 w-4" />
       </CardHeader>
       <CardContent className="space-y-1">
-        {monthCanceledOrdersAmount && (
+        {monthRevenue && (
           <>
             <span className="text-2xl font-bold tracking-tight">
-              {monthCanceledOrdersAmount.amount.toLocaleString('pt-BR')}
+              {(monthRevenue.receipt / 100).toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              })}
             </span>
             <p className="text-muted-foreground text-sm">
-              {monthCanceledOrdersAmount.diffFromLastMonth < 0 ? (
+              {monthRevenue.diffFromLastMonth >= 0 ? (
                 <>
                   <span className="text-emerald-500 dark:text-emerald-400">
-                    {monthCanceledOrdersAmount.diffFromLastMonth}%
+                    +{monthRevenue.diffFromLastMonth}%
                   </span>{' '}
                   em relação ao mês anterior
                 </>
               ) : (
                 <>
                   <span className="text-rose-500 dark:text-rose-400">
-                    +{monthCanceledOrdersAmount.diffFromLastMonth}%
+                    {monthRevenue.diffFromLastMonth}%
                   </span>{' '}
                   em relação ao mês anterior
                 </>

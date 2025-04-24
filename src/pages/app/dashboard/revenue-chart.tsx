@@ -17,16 +17,16 @@ import {
 } from '@/components/ui/card'
 
 const data = [
-  { date: '01/10', reveneu: 4000 },
-  { date: '02/10', reveneu: 3000 },
-  { date: '03/10', reveneu: 2000 },
-  { date: '04/10', reveneu: 2780 },
-  { date: '05/10', reveneu: 1890 },
-  { date: '06/10', reveneu: 2390 },
-  { date: '07/10', reveneu: 3490 },
+  { date: '01/10', revenue: 4000 },
+  { date: '02/10', revenue: 3000 },
+  { date: '03/10', revenue: 2000 },
+  { date: '04/10', revenue: 2780 },
+  { date: '05/10', revenue: 1890 },
+  { date: '06/10', revenue: 2390 },
+  { date: '07/10', revenue: 3490 },
 ]
 
-export function ReveneuChart() {
+export function RevenueChart() {
   return (
     <Card className="col-span-6">
       <CardHeader className="flex-row items-center justify-between pb-8">
@@ -55,7 +55,7 @@ export function ReveneuChart() {
             <Line
               type="linear"
               strokeWidth={2}
-              dataKey="reveneu"
+              dataKey="revenue"
               stroke={colors.violet['500']}
             />
           </LineChart>
